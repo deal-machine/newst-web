@@ -11,9 +11,9 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "SideBar",
-  props: {
-    msg: String,
-  },
+  // props: {
+  //   title: String,
+  // },
 });
 </script>
 
@@ -32,5 +32,8 @@ header {
 }
 img {
   height: 6rem;
+  transform: rotate(180deg);
+  background-color: black;
+  border-radius: 100px;
 }
 </style>
