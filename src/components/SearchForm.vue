@@ -3,7 +3,12 @@
     <div class="columns">
       <div class="column is-4">
         <div class="control">
-          <input class="input" type="text" placeholder="Top Headlines" />
+          <input
+            class="input"
+            type="text"
+            placeholder="Top Headlines"
+            v-model="searchText"
+          />
         </div>
       </div>
 
@@ -17,7 +22,7 @@
         </div>
       </div>
       <div class="column is-2">
-        <button class="button is-info">Search</button>
+        <button class="button is-info" @click="onSendSearch">Search</button>
       </div>
     </div>
   </form>
@@ -28,6 +33,17 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "SearchForm",
+  methods: {
+    onSendSearch() {
+      console.log(this.selectedItem, this.searchText);
+      this.$emit("onSendSearch", {
+        searchText: this.searchText,
+        searchItem: this.selectedItem,
+      });
+      this.searchText = "";
+    },
+  },
+  emits: ["onSendSearch"],
   data() {
     return {
       items: [
@@ -87,6 +103,7 @@ export default defineComponent({
         "za",
       ],
       selectedItem: "pt",
+      searchText: "",
     };
   },
 });
