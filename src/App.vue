@@ -3,7 +3,8 @@
     <div class="column is-one-quarter" id="sidebar">
       <SideBar />
     </div>
-    <div class="column is-three-quarter" id="list">
+    <div class="column is-three-quarter">
+      <SearchForm />
       <ListNews />
     </div>
   </main>
@@ -13,10 +14,11 @@
 import { defineComponent } from "vue";
 import SideBar from "./components/SideBar.vue";
 import ListNews from "./components/ListNews.vue";
+import SearchForm from "./components/SearchForm.vue";
 
 export default defineComponent({
   name: "App",
-  components: { SideBar, ListNews },
+  components: { SideBar, ListNews, SearchForm },
 });
 </script>
 
