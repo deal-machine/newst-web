@@ -1,8 +1,15 @@
 <template>
-  <div class="box">
-    <div class="columns">
+  <div class="list">
+    <div v-if="news.length > 0">
       <div v-for="(item, index) in news" :key="index">
-        <NewCard :newData="item" />
+        <div class="box">
+          <NewCard :newData="item" />
+        </div>
+      </div>
+    </div>
+    <div v-else>
+      <div class="box">
+        <h1>There are no news to list.</h1>
       </div>
     </div>
   </div>
@@ -16,17 +23,20 @@ import { defineComponent } from "vue";
 const news: INew[] = [
   {
     author: "Author name",
-    description: "Description Text",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa          sem. Etiam finibus odio quis feugiat facilisis.",
     title: "Title Test",
   },
   {
-    author: "Author name",
-    description: "Description Text",
+    author: "First author",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.",
     title: "Title Testing",
   },
   {
-    author: "Author name",
-    description: "Description Text",
+    author: "Second name",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa          sem. Etiam finibus odio quis feugiat facilisis.",
     title: "Title Ok",
   },
 ];
@@ -40,3 +50,10 @@ export default defineComponent({
   },
 });
 </script>
+
+<style scoped>
+h1 {
+  text-align: center;
+  font-weight: 500;
+}
+</style>
