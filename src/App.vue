@@ -4,7 +4,7 @@
       <SideBar />
     </div>
     <div class="column is-three-quarter">
-      <SearchForm />
+      <SearchForm @onSendSearch="handleSearch" />
       <ListNews />
     </div>
   </main>
@@ -18,6 +18,11 @@ import SearchForm from "./components/SearchForm.vue";
 
 export default defineComponent({
   name: "App",
+  methods: {
+    handleSearch(data: any): void {
+      console.log(data);
+    },
+  },
   components: { SideBar, ListNews, SearchForm },
 });
 </script>
