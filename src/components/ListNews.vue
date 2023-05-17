@@ -1,8 +1,8 @@
 <template>
   <div class="list">
-    <div v-if="news.length > 0">
+    <div v-if="isNewsExists">
       <div v-for="(item, index) in news" :key="index">
-        <div class="box">
+        <div v-show="item.description" class="box">
           <NewCard :newData="item" />
         </div>
       </div>
@@ -26,15 +26,20 @@ const news: INew[] = [
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa          sem. Etiam finibus odio quis feugiat facilisis.",
     title: "Title Test",
+    url: "https://linkedin.com/in/95deal",
   },
   {
     author: "First author",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.",
     title: "Title Testing",
+    publishedAt: "2023-05-16T12:11:00Z",
   },
   {
     author: "Second name",
+    url: "https://linkedin.com/in/95deal",
+    publishedAt: "2023-05-16T12:11:00Z",
+
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa          sem. Etiam finibus odio quis feugiat facilisis.",
     title: "Title Ok",
@@ -44,7 +49,7 @@ const news: INew[] = [
 export default defineComponent({
   name: "ListNews",
   components: { NewCard },
-  data: () => ({ news }),
+  data: () => ({ news, isNewsExists: news.length > 0 }),
 });
 </script>
 
