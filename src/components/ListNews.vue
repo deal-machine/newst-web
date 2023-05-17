@@ -44,7 +44,6 @@ const news: INew[] = [
 export default defineComponent({
   name: "ListNews",
   components: { NewCard },
-
   data() {
     return { news };
   },

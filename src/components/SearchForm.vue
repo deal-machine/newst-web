@@ -35,12 +35,10 @@ export default defineComponent({
   name: "SearchForm",
   methods: {
     onSendSearch() {
-      console.log(this.selectedItem, this.searchText);
       this.$emit("onSendSearch", {
         searchText: this.searchText,
         searchItem: this.selectedItem,
       });
-      this.searchText = "";
     },
   },
   emits: ["onSendSearch"],
