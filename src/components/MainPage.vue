@@ -5,7 +5,7 @@
     </div>
     <div class="column is-three-quarter">
       <SearchForm @onSendSearch="handleSearch" />
-      <ListNews />
+      <ListNews :params="params" />
     </div>
   </main>
 </template>
@@ -20,8 +20,18 @@ export default defineComponent({
   name: "MainPage",
   methods: {
     handleSearch(data: any): void {
-      console.log(data);
+      console.log("data: ", data);
+      this.params.category = data.category;
+      this.params.keywords = data.keywords;
     },
+  },
+  data() {
+    return {
+      params: {
+        category: undefined,
+        keywords: undefined,
+      },
+    };
   },
   components: { SideBar, ListNews, SearchForm },
 });

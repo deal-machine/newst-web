@@ -30,11 +30,6 @@ import { PropType, defineComponent } from "vue";
 import { INew } from "@/protocols/INew";
 export default defineComponent({
   name: "NewCard",
-  data() {
-    return {
-      pageName: "",
-    };
-  },
   props: {
     newData: {
       type: Object as PropType<INew>,

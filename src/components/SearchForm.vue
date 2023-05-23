@@ -38,11 +38,12 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "SearchForm",
   methods: {
-    onSendSearch() {
+    onSendSearch(e: Event) {
       this.$emit("onSendSearch", {
         searchText: this.searchText,
         searchItem: this.selectedItem,
       });
+      e.preventDefault();
     },
   },
   emits: ["onSendSearch"],
